@@ -112,6 +112,7 @@ class DiTBlock(nn.Module):
         # approx_gelu = lambda: nn.GELU(approximate="tanh")
         approx_gelu = lambda: nn.GELU()
         # self.mlp = Mlp(in_features=hidden_size, hidden_features=mlp_hidden_dim, act_layer=approx_gelu, drop=0)
+        # self.mlp = KAN([hidden_size, mlp_hidden_dim, hidden_size])
         self.mlp = KAN([hidden_size, hidden_size])
         self.adaLN_modulation = nn.Sequential(
             nn.SiLU(),
